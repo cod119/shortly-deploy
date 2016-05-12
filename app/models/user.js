@@ -19,9 +19,10 @@ usersSchema.method('hashPassword', function() {
   });
 
 usersSchema.method('comparePassword', function(attemptedPassword, callback) {
-    bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
+  bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
       callback(isMatch);
-    });
+  });
+});
 
 var User = mongoose.model('user', usersSchema, 'users');
 
