@@ -1,10 +1,10 @@
 var db = require('../config');
 var bcrypt = require('bcrypt-nodejs');
 var Promise = require('bluebird');
-//var mongoose = require('mongoose')
+var mongoose = require('mongoose')
 
 
-var usersSchema = db.Schema({
+var usersSchema = mongoose.Schema({
     // id: ObjectId,
     username: String,
     password: String,
