@@ -14,7 +14,7 @@ var urlsSchema = mongoose.Schema({
 
 urlsSchema.method('initialize', function() {
   var shasum = crypto.createHash('sha1');
-  shasum.update(this.url));
+  shasum.update(this.url);
   this.code = shasum.digest('hex').slice(0, 5);
 });
 
