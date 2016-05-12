@@ -14,7 +14,10 @@ var usersSchema = mongoose.Schema({
 usersSchema.method('hashPassword', function() {
   //var cipher = Promise.promisify(bcrypt.hash);
   return new Promise(function(resolve, reject) {
-    bcrypt.hash(this.password, null, null).bind(this);
+    bcrypt.hash(this.password, bcrypt.genSaltSync(), null, function(err, hash) {
+      if (err) reject(err);
+      resolve(hash);
+    }).bind(this);
   }).then(function(hash) {
       this.password = hash;
   });
