@@ -10,8 +10,8 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // we're connected!
   
-  db.createCollection('users');
-  db.createCollection('urls');
+  // db.createCollection('users');
+  // db.createCollection('urls');
 
   // var urlsSchema = mongoose.Schema({
   //   id: ObjectId,

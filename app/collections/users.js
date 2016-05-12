@@ -4,8 +4,8 @@ var User = require('../models/user');
 
 
 
-var Users = db.createCollection('users');
+//var Users = db.createCollection('users');
 
 // Users.model = User;
 
-module.exports = Users;
+//module.exports = Users;
