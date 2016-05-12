@@ -18,7 +18,7 @@ urlsSchema.method('initialize', function() {
   this.code = shasum.digest('hex').slice(0, 5);
 });
 
-var Link = db.model('url', usersSchema, 'urls');
+var Link = db.model('url', urlsSchema, 'urls');
 
 
 // var Link = db.Model.extend({
