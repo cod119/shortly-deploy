@@ -17,9 +17,9 @@ usersSchema.method('hashPassword', function() {
     bcrypt.hash(this.password, null, null).bind(this);
   }).then(function(hash) {
       this.password = hash;
-    });
   });
 });
+
 usersSchema.method('comparePassword', function(attemptedPassword, callback) {
   console.log('this.password ', this.password);
   bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
