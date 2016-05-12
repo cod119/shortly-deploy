@@ -12,13 +12,14 @@ var usersSchema = mongoose.Schema({
   });
 
 usersSchema.method('hashPassword', function() {
-  var cipher = Promise.promisify(bcrypt.hash);
-  return cipher(this.password, null, null).bind(this)
-    .then(function(hash) {
+  //var cipher = Promise.promisify(bcrypt.hash);
+  return new Promise(function(resolve, reject) {
+    bcrypt.hash(this.password, null, null).bind(this);
+  }).then(function(hash) {
       this.password = hash;
     });
   });
-
+});
 usersSchema.method('comparePassword', function(attemptedPassword, callback) {
   console.log('this.password ', this.password);
   bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
