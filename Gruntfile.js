@@ -3,6 +3,24 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      options: {
+        stripBanners: true,
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+          '<%= grunt.template.today("yyyy-mm-dd") %> */',
+      },
+      dist: {
+        src: [ 'public/lib/jquery.js', 'public/lib/underbar.js',
+               'public/lib/backbone.js', 'public/lib/handlebar.js',
+               'app/config.js', 'app/**/user.js', 'app/**/link.js',
+               'app/**/users.js', 'app/**/links.js',
+               'public/client/app.js', 'public/client/link.js',
+               'public/client/links.js', 'public/client/linkView.js',
+               'public/client/linksView.js', 'public/client/createLinkView.js',
+               'public/client/router.js',
+               'lib/utility.js', 'lib/request-handler.js',
+               'shortly.js'],
+        dest: 'public/dist/js/shortly.js'
+      }
     },
 
     mochaTest: {
@@ -21,15 +39,34 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      options: {
+        banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+      },
+      build: {
+        files: {
+          'public/dist/js/shortly.min.js': 'public/dist/js/shortly.js'
+        }
+      }
+
     },
 
     eslint: {
       target: [
         // Add list of files to lint here
+        'Gruntfile.js', '/app/**/*.js', '/lib/*.js', '/public/client/*.js', 'server.js', 'server-config.js'
       ]
     },
 
+    //distribution directory를 만들어야 할 것처럼 보임
     cssmin: {
+      options: {
+        banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+      },
+      build: {
+        files: {
+          'dist/css/style.min.css': 'public/style.css'
+        }
+      }
     },
 
     watch: {

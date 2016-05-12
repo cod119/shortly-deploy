@@ -2,8 +2,10 @@
 var db = require('../config');
 var User = require('../models/user');
 
-var Users = new db.Collection();
 
-Users.model = User;
 
-module.exports = Users;
+//var Users = db.createCollection('users');
+
+// Users.model = User;
+
+//module.exports = Users;
