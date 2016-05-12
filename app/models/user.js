@@ -23,6 +23,7 @@ usersSchema.method('hashPassword', function() {
     });
   }).then(function(hash) {
       this.password = hash;
+      return this;
   });
 });
 
