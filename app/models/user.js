@@ -22,8 +22,8 @@ usersSchema.method('hashPassword', function() {
       resolve(hash);
     });
   }).then(function(hash) {
-      this.password = hash;
-      return this;
+      self.password = hash;
+      //return self;
   });
 });
 
