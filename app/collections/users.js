@@ -4,7 +4,7 @@ var User = require('../models/user');
 
 
 
-var Users = db.collection('users');
+var Users = db.createCollection('users');
 
 // Users.model = User;
 
