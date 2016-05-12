@@ -7,8 +7,8 @@ var mongoose = require('mongoose')
 var usersSchema = mongoose.Schema({
     // id: ObjectId,
     username: String,
-    password: String,
-    timestamps: { createdAt: 'created_at' }
+    password: String
+    //timestamps: { createdAt: 'created_at' }
   });
 
 usersSchema.method('hashPassword', function() {

@@ -8,8 +8,8 @@ var urlsSchema = mongoose.Schema({
   baseUrl: String,
   code: String,
   title: String,
-  visits: Number,
-  timestamps: { createdAt: 'created_at' }
+  visits: Number
+  //timestamps: { createdAt: 'created_at' }
 });
 
 urlsSchema.method('initialize', function() {
