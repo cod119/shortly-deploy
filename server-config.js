@@ -15,18 +15,18 @@ app.configure(function() {
   app.use(express.static(__dirname + '/public'));
   app.use(express.cookieParser('shhhh, very secret'));
   app.use(express.session());
-  app.use(function(req, res, next) {
-    var redirectURL = {
-      '/': true,
-      '/create' : true,
-      '/links' : true
-    };
-    var pathname = url.parse(req.url).pathname;
-    if(!req.session.isLoggedIn && redirectURL[pathname]) {
-      res.redirect('/login');
-    }
-    next();
-  });
+  // app.use(function(req, res, next) {
+  //   var redirectURL = {
+  //     '/': true,
+  //     '/create' : true,
+  //     '/links' : true
+  //   };
+  //   var pathname = url.parse(req.url).pathname;
+  //   if(!req.session.isLoggedIn && redirectURL[pathname]) {
+  //     res.redirect('/login');
+  //   }
+  //   next();
+  // });
 });
 
 app.get('/', util.checkUser, handler.renderIndex);
