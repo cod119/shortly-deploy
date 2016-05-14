@@ -1,5 +1,6 @@
 var express = require('express');
 var partials = require('express-partials');
+var url = require('url');
 var util = require('./lib/utility');
 
 var handler = require('./lib/request-handler');
