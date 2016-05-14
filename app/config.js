@@ -9,7 +9,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 db.once('open', function() {
   // we're connected!
-  
+
   // db.createCollection('users');
   // db.createCollection('urls');
 
@@ -23,7 +23,6 @@ db.once('open', function() {
   //   timestamps: { createdAt: 'created_at' }
   // })
 })
-
 
 
 module.exports = db;
